@@ -12,22 +12,32 @@ return {
 
     opts = {},
   },
+{
+  "RRethy/vim-illuminate",
+  event = "VeryLazy",
 
-  {
-    "RRethy/vim-illuminate",
-    event = "VeryLazy",
-
-    opts = {
+  config = function()
+    require("illuminate").configure({
       delay = 200,
+
+      providers = {
+        "lsp",
+        "treesitter",
+        "regex",
+      },
 
       filetypes_denylist = {
         "NvimTree",
+        "neo-tree",
         "TelescopePrompt",
         "toggleterm",
+        "lazy",
+        "mason",
         "alpha",
       },
-    },
-  },
+    })
+  end,
+},
 
   {
     "folke/which-key.nvim",

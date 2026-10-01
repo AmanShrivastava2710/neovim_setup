@@ -1,23 +1,26 @@
 return {
   {
     "NakLast/antigravity-cli.nvim",
+
     cmd = "Antigravity",
 
-    opts = {
-      -- IMPORTANT:
-      -- Google's current CLI executable is `agy`.
-      cmd = "agy",
+    config = function()
+      require("antigravity").setup({
+        cmd = "agy",
+        style = "float",
 
-      width_ratio = 0.88,
-      height_ratio = 0.88,
-      border = "rounded",
-    },
+        width_ratio = 0.95,
+        height_ratio = 0.92,
+
+        border = "rounded",
+      })
+    end,
 
     keys = {
       {
         "<leader>ag",
         "<cmd>Antigravity<cr>",
-        desc = "Toggle Antigravity",
+        desc = "Antigravity",
       },
     },
   },
